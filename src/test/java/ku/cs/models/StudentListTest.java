@@ -30,11 +30,23 @@ public class StudentListTest {
 
     @Test
     @DisplayName("ทดสอบ givescore")
-    void testGiveScoretoID(){
+    void testGiveScoretoId(){
         s2.addNewStudent("62xxxxx", "Mark");
         s2.giveScoreToId("62xxxxx", 50);
         assertEquals(50, s2.findStudentById("62xxxxx").getScore());
     }
+
+    @Test
+    @DisplayName("ทดสอบ viewgrade")
+    void testViewGradeOfId(){
+        s2.addNewStudent("62xxxxx", "Mark");
+        s3.addNewStudent("63xxxxx", "Pete");
+        s2.giveScoreToId("62xxxxx", 80);
+        s3.giveScoreToId("63xxxxx", 70);
+        assertEquals("A", s2.viewGradeOfId("62xxxxx"));
+        assertEquals("B", s3.viewGradeOfId("63xxxxx"));
+    }
+
 
 
 
